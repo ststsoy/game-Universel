@@ -14,22 +14,23 @@ import java.security.Key;
 
 public class Universe extends JFrame implements KeyListener {
     private static Image karable;
+    private static Image bacground;
+    private static long last_frame_time;
     private static Pole vip;
-    private static int x;
-    private static int y;
+    private static float x=200;
+    private static float y=200;
+    private static float v=200;
 
     public Universe() throws IOException {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Uneverse");
         setSize(800, 700);
         vip = new Pole();
-        setSize(800, 700);
-        vip.setBackground(Color.BLACK);
+        setSize(800, 700);;
         setVisible(true);
+        bacground = ImageIO.read(Universe.class.getResourceAsStream("oboik.ru_60754.jpg"));
         karable = ImageIO.read(Universe.class.getResourceAsStream("images.png"));
-
         add(vip, BorderLayout.CENTER);
-
         setVisible(true);
         addKeyListener(this);
     }
@@ -39,20 +40,31 @@ public class Universe extends JFrame implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         //JOptionPane.showMessageDialog(null,e.getKeyText(e.getKeyChar()));
+
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == 39 && x<550) {
-            vip.getGraphics().drawImage(karable, x++, y, null);
-            repaint();
-            }else if(e.getKeyCode() == 37&& x>0)
-            getGraphics().drawImage(karable, x--, y, null);
-        if(e.getKeyCode()==40 && y<430) {
-            getGraphics().drawImage(karable, x, y++, null);
-        }else if(e.getKeyCode()==38 && y>0){
-            getGraphics().drawImage(karable,x,y--,null);
-        }
+    public void keyPressed(KeyEvent e)
+    { if (e.getKeyCode() == 39 && x<700) {
+        getGraphics().drawImage(karable, (int) x++,(int) y, null);
+        }else if(e.getKeyCode() == 37&& x>0)
+            getGraphics().drawImage(karable,(int) x--,(int) y, null);
+    if(e.getKeyCode()==40 && y<530) {
+        getGraphics().drawImage(karable,(int) x,(int) y++, null);
+       }else if(e.getKeyCode()==38 && y>0){
+           getGraphics().drawImage(karable,(int) x,(int) y--,null);
+       }
+
+        //long current_time =System.nanoTime();
+        //float delta_time = (current_time - last_frame_time)*0.000000001f;
+        //last_frame_time=current_time;
+        //if(e.getKeyCode()==39){
+        //    v=x*delta_time;
+        //    getGraphics().drawImage(karable,(int) v,(int) y,null);
+        //}else if(e.getKeyCode() == 37)
+        //    getGraphics().drawImage(karable,(int) x--,(int) y, null);
+        //repaint();
+
 
     }
 
@@ -64,8 +76,9 @@ public class Universe extends JFrame implements KeyListener {
 
     }
     private static void onRepaint(Graphics g) {
+        g.drawImage(bacground,0,0,null);
+        g.drawImage(karable,(int) x,(int) y,null);
 
-        g.drawImage(karable,x,y,null);
     }
 
 
