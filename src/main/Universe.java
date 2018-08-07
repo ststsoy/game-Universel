@@ -19,7 +19,7 @@ public class Universe extends JFrame implements KeyListener {
     private static Pole vip;
     private static float x=200;
     private static float y=200;
-    private static float v=200;
+    private static float v=0.120f;
 
     public Universe() throws IOException {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -44,28 +44,23 @@ public class Universe extends JFrame implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e)
-    { if (e.getKeyCode() == 39 && x<700) {
-        getGraphics().drawImage(karable, (int) x++,(int) y, null);
+    public void keyPressed(KeyEvent e) {
+        long current_time =System.nanoTime();
+        float delta_time = (current_time - last_frame_time)*0.000000001f;
+        last_frame_time=current_time;
+        if (e.getKeyCode() == 39 && x<700) {
+            x+=30;
+            getGraphics().drawImage(karable, (int) x,(int) y, null);
         }else if(e.getKeyCode() == 37&& x>0)
-            getGraphics().drawImage(karable,(int) x--,(int) y, null);
-    if(e.getKeyCode()==40 && y<530) {
-        getGraphics().drawImage(karable,(int) x,(int) y++, null);
-       }else if(e.getKeyCode()==38 && y>0){
-           getGraphics().drawImage(karable,(int) x,(int) y--,null);
-       }
-
-        //long current_time =System.nanoTime();
-        //float delta_time = (current_time - last_frame_time)*0.000000001f;
-        //last_frame_time=current_time;
-        //if(e.getKeyCode()==39){
-        //    v=x*delta_time;
-        //    getGraphics().drawImage(karable,(int) v,(int) y,null);
-        //}else if(e.getKeyCode() == 37)
-        //    getGraphics().drawImage(karable,(int) x--,(int) y, null);
-        //repaint();
-
-
+            x-=30;
+            getGraphics().drawImage(karable,(int) x,(int) y, null);
+        if(e.getKeyCode()==40 && y<530) {
+            y+=30;
+            getGraphics().drawImage(karable,(int) x,(int) y, null);
+        }else if(e.getKeyCode()==38 && y>0){
+            y-=30;
+            getGraphics().drawImage(karable,(int) x,(int) y,null);
+        }
     }
 
     
@@ -89,7 +84,7 @@ public class Universe extends JFrame implements KeyListener {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             onRepaint(g);
-            repaint();
+             repaint();
             }
         }
 }
