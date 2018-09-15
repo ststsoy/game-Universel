@@ -47,13 +47,15 @@ public class Universe extends JFrame implements KeyListener {
         settings = new Settings ();
         settings.setDefaultCloseOperation (WindowConstants.EXIT_ON_CLOSE);
         settings.setTitle ("Settings");
-        settings.setSize (800,700);
+        settings.setSize (200,400);
         Settings.Panel panel = new Settings.Panel ();
-        panel.setSize (100,400);
         panel.setLocation (100,200);
+
         JButton button = new JButton ();
+        JButton button2=new JButton ();
         button.setSize (100,50);
         button.setLabel ("Start");
+        button2.setLabel ("exit");
 
         button.addActionListener (new ActionListener () {
             @Override
@@ -62,13 +64,17 @@ public class Universe extends JFrame implements KeyListener {
 
             }
         });
-        textArea = new JTextArea ();
-        textArea.setSize (100,200);
+        JTextField textField = new JTextField ();
+        textField.setSize (400,200);
+        panel.setSize (200,400);
         label =new JLabel ("Hello!!!");
         panel.add(button,BorderLayout.NORTH);
-        panel.add (textArea);
+        panel.add(button2,BorderLayout.SOUTH);
+        panel.add(textField);
         panel.add (label);
-        settings.add(panel,BorderLayout.WEST);
+
+        settings.add(panel,BorderLayout.CENTER);
+        settings.add (textField,BorderLayout.SOUTH);
         settings.setVisible (true);
         fit = new Universe ();
         fit.setDefaultCloseOperation (WindowConstants.EXIT_ON_CLOSE);
