@@ -1,0 +1,11 @@
+<root>
+    <item name='javax.swing.JComponent void update(java.awt.Graphics)'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+    <item name='javax.swing.JFrame void update(java.awt.Graphics)'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+    <item name='javax.swing.JPanel'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

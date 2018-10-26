@@ -1,0 +1,5 @@
+<root>
+    <item name='javax.swing.plaf.synth.SynthLookAndFeel void update(javax.swing.plaf.synth.SynthContext, java.awt.Graphics)'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
