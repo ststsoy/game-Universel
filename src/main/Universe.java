@@ -10,6 +10,8 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import static main.Enamyfree.draw;
+
 
 public class Universe extends JFrame{
     public static Universe fit;
@@ -29,7 +31,9 @@ public class Universe extends JFrame{
     private static Playr playr;
     private static Enamy enamy11;
     private static Enamy_2 enamy_2;
-
+    private static Enamyfree enamyfree;
+    private static Enamyfree enamyfree1;
+    private static Enamyfree enamyfree2;
     public static BufferedImage enamy;
     public Universe () {
         addKeyListener (new Listner ());
@@ -90,6 +94,11 @@ public class Universe extends JFrame{
         Playr playr = new Playr ();
         Enamy enamy11 = new Enamy ();
         Enamy_2 enamy_2=new Enamy_2 ();
+        enamyfree=new Enamyfree ("вражеский корабль03.png","enamy_bullet.png");
+        enamyfree2 =new Enamyfree ("вражеский корабль02.png","enamy_bullet.png");
+        enamyfree2 = new Enamyfree ("вражеский корабль02.png","enamy_bullet.png");
+
+
         Listner listner = new Listner ();
     }
     public static void push(){
@@ -112,6 +121,10 @@ public class Universe extends JFrame{
         playr.draw (g);
         enamy11.draw (g);
         enamy_2.draw (g);
+        enamyfree.draw (g,100,0,100);
+        enamyfree.draw (g,300,0,100);
+        enamyfree.draw (g,500,0,100);
+
     }
     public static class Pole extends JPanel {
         @Override

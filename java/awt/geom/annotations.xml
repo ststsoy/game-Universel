@@ -1,0 +1,5 @@
+<root>
+    <item name='java.awt.geom.Rectangle2D'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

@@ -96,6 +96,7 @@ public class Playr {
             py = 500;
             score_e++;
             if (score_e == 3) {
+                //System.exit (0);
                 fit.setVisible (false);
                 label.setText ("You lose!!!");
                 score_e = 0;
@@ -112,6 +113,7 @@ public class Playr {
             py = 500;
             score_e++;
             if (score_e == 3) {
+                //System.exit (0);
                 fit.setVisible (false);
                 label.setText ("You lose!!!");
                 score_e = 0;

@@ -57,6 +57,7 @@ public class Enamy {
             x_e = (int) Math.random () * (vip.getWidth () - enamy.getWidth (null));
             score_p++;
             if(score_p==8){
+                System.exit (0);
                 fit.setVisible (false);
                 label.setText ("You Win!!!");
                 score_p = 0;
@@ -72,6 +73,7 @@ public class Enamy {
             x_e = (int) Math.random () * (vip.getWidth () - enamy.getWidth (null));
             score_p++;
             if(score_p==8){
+                System.exit (0);
                 fit.setVisible (false);
                 label.setText ("You Win!!!");
                 score_p = 0;
